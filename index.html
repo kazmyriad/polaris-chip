@@ -31,8 +31,41 @@
   <polaris-chip title="Sports are the only thing that matter"></polaris-chip>
   <polaris-chip title="Grants and donations"></polaris-chip>
 
+  <button>Toggle</button> <!-- TOGGLING FANCY BACKGROUND-->
+  <script>
+    const button = document.querySelector('button');
+    button.addEventListener('click', () =>{
+      const card = document.querySelector('my-card');
+      card.fancy = !card.fancy;
+    });
+
+  </script>
   <h1>my-card</h1>
   <my-card></my-card>
+  <my-card 
+    cardName ="DESTROYER" 
+    image="https://imgs.search.brave.com/N_s_q1ZeGLPsjLR1D716eOsakLbcxGrj6M4DWHFCtJc/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93MC5w/ZWFrcHguY29tL3dh/bGxwYXBlci81NTQv/NzA3L0hELXdhbGxw/YXBlci1jYXQtc3Bp/dHRpbmctZmlyZS1i/bGFjay1jYXQtZmxh/bWVzLWFuaW1hbC5q/cGc"
+    cardType = "Legendary Creature - Cat Demon"
+    toughness = "10 / 10"
+    ></my-card>
+    <my-card 
+    cardName ="Mr. Kitten(s)" 
+    image="https://imgs.search.brave.com/4-v-WA_nch3PIXshB8lDRp3BXWb6ct2fmx-Tl_jjXaM/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93YWxs/cGFwZXJzLmNvbS9p/bWFnZXMvZmVhdHVy/ZWQvY3V0ZS1jYXQt/cGljdHVyZXMtOTM4/NTgxdDIwOHkycThs/ZS5qcGc"
+    cardType = "Creature - Cat"
+    toughness = "3 / 3"
+    ></my-card>
+    <my-card 
+    cardName ="Cat Bomb" 
+    image="https://imgs.search.brave.com/HGberZG8a_gNLqJmDV3E0ISOb5wZ0F4n8SVeEay5w9I/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pLmlt/Z2ZsaXAuY29tLzIv/OXNxcGMuanBn"
+    cardType = "Creature - Cat"
+    toughness = " 2 / 3"
+    ></my-card>
+    <my-card 
+    cardName ="Empress, Darkness Incarnate" 
+    image="https://imgs.search.brave.com/lQd4IREkjZ7gaj4jcQxlK_8PKWzIK9RcLfOJEQcl0ec/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9zdGF0/aWMuYm9yZWRwYW5k/YS5jb20vYmxvZy93/cC1jb250ZW50L3Vw/bG9hZHMvMjAxOC8w/NS9CZlFkVU9lbmdp/VC5wbmc"
+    cardType = "Legendary Creature - Cat God"
+    toughness = " 10 / 10"
+    ></my-card>
 
   <!-- this is what is bringing in the definition for this tag -->
   <script type="module" src="./src/polaris-chip.js"></script>
