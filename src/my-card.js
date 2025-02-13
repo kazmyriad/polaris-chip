@@ -24,6 +24,7 @@ export class MyCard extends LitElement {
     this.toughness = "6 / 4"
     this.cardName = "Maple, Syrup Queen"
     this.cardType = "Legendary Creature - Cat God"
+    this.description = "Placeholder"
     this.image = "https://imgs.search.brave.com/IwqolXqmuCcwuQ5DcPCFHhRzTcbtWj49xsSR8uKlKBw/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbWFn/ZXMuc3F1YXJlc3Bh/Y2UtY2RuLmNvbS9j/b250ZW50L3YxLzVl/OGI3OWFkZDJhNzQz/MGEyYmZlNGZhZC8x/NTg2NDY4OTUxMjcz/LUdIT1RTREY3V0sx/NTYyMTJYQzhUL21h/cGxlMW1vbnRoMy5w/bmc"
     this.fancy = false; // default should always be false
   }
@@ -36,9 +37,10 @@ export class MyCard extends LitElement {
         display: block;
       } // dont touch this
       
-      :host([fancy]) .card 
+      :host([fancy]) .card
       {
-        background-image: url(https://imgs.search.brave.com/m2UjgmE4y8fuju6XBg6j6a38MLxrhbDydrVyOmcgZ6c/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly90NC5m/dGNkbi5uZXQvanBn/LzEwLzAxLzYyLzI3/LzM2MF9GXzEwMDE2/MjI3NDVfV2w2NXdJ/emQ5WmlsaDd3em1Z/STZDMDRONEZ0ZTE3/d1UuanBn);
+        background: green;
+        display: hidden;
       }
             
       .card-wrapper
@@ -199,6 +201,17 @@ export class MyCard extends LitElement {
     `;
   }
 
+  openChanged(e){
+    console.log(e.newState);
+    if (e.newState === "open") {
+      this.fancy = true;
+    }
+    else {
+      this.fancy = false;
+    }
+    console.log(this.fancy)
+  }
+
   // FOR ME: What's being shown to the user
   render() {
     return html`
@@ -216,6 +229,12 @@ export class MyCard extends LitElement {
               </p>
             </div>
             <div id="text">
+            <details ?open="${this.fancy}" @toggle="${this.openChanged}">
+              <summary>Description</summary>
+              <div>
+                <slot>${this.description}</slot>
+              </div>
+            </details>
               <p>Vigilance, Trample, Deathtouch, Lifelink, Indestructible, Hexproof.</p>
               <p>When Maple, Syrup Queen is cast, pick any number of opponents. They exile half their library.</p>
               <p><span id="cost">1</span>: Any number of target creatures become tapped, 1/1 Cat creatures and do not untap during their controller's untap phase.</p>
@@ -242,7 +261,8 @@ export class MyCard extends LitElement {
       image: { type: String },
       cardName: { type: String },
       cardType: { type: String },
-      toughness: { type: String }
+      toughness: { type: String },
+      description: { type: String },
     };
   }
   // good for APIs that can search the DOM and change specific elements
@@ -253,3 +273,5 @@ export class MyCard extends LitElement {
 globalThis.customElements.define(MyCard.tag, MyCard);
 // ^ why globalThis, why MyCard.tag, what does define do
 // whenever you see the MyCard tag , run the class MyCard
+
+//slot tag 
