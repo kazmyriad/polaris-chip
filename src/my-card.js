@@ -35,12 +35,13 @@ export class MyCard extends LitElement {
     return css`
       :host {
         display: block;
-      } // dont touch this
+      } 
+      /* Comment with the star */
       
-      :host([fancy]) .card
-      {
-        background: green;
-        display: hidden;
+      :host([fancy]) .card{
+        display: block;
+        background-color: blue;
+        color: white
       }
             
       .card-wrapper
@@ -56,7 +57,8 @@ export class MyCard extends LitElement {
 
       .card
       {
-        background-image: url(https://imgs.search.brave.com/c50BPg4piiAGKRKqw8BwsoqHlSOa3Cog8nQ2tLuT6Qg/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvMTM1/NTY1MDcwL3Bob3Rv/L2Fic3RyYWN0LWJh/Y2tncm91bmQtb2Yt/c3RhcnMtaW4tdGhl/LWdhbGF4eS5qcGc_/cz02MTJ4NjEyJnc9/MCZrPTIwJmM9WS1q/d2ZncGZOcHRsWG5t/THNzVEpaYTZsd0Ix/TXM1S0g5M0RrWTFX/RVdLaz0);
+        background-color: orange;
+        /* background-image: url(https://imgs.search.brave.com/c50BPg4piiAGKRKqw8BwsoqHlSOa3Cog8nQ2tLuT6Qg/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvMTM1/NTY1MDcwL3Bob3Rv/L2Fic3RyYWN0LWJh/Y2tncm91bmQtb2Yt/c3RhcnMtaW4tdGhl/LWdhbGF4eS5qcGc_/cz02MTJ4NjEyJnc9/MCZrPTIwJmM9WS1q/d2ZncGZOcHRsWG5t/THNzVEpaYTZsd0Ix/TXM1S0g5M0RrWTFX/RVdLaz0); */
         padding: 5px 23px 5px 15px;
 
       }
@@ -212,6 +214,8 @@ export class MyCard extends LitElement {
     console.log(this.fancy)
   }
 
+
+
   // FOR ME: What's being shown to the user
   render() {
     return html`
@@ -254,6 +258,7 @@ export class MyCard extends LitElement {
   // what does static get mean? Moreso the get - I think static is similar to Java static
   // name: What does colon mean? (Answered on own I think)
 
+  
   static get properties() { // should match constructor components
     return {
       fancy: { type: Boolean, reflect: true }, //expects fancy to be true or false, but the
@@ -271,6 +276,7 @@ export class MyCard extends LitElement {
 }
 
 globalThis.customElements.define(MyCard.tag, MyCard);
+
 // ^ why globalThis, why MyCard.tag, what does define do
 // whenever you see the MyCard tag , run the class MyCard
 
