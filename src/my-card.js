@@ -24,7 +24,8 @@ export class MyCard extends LitElement {
     this.toughness = "6 / 4"
     this.cardName = "Maple, Syrup Queen"
     this.cardType = "Legendary Creature - Cat God"
-    this.description = "Placeholder"
+    this.cardColor ="This is a blue card"
+    this.description = ""
     this.image = "https://imgs.search.brave.com/IwqolXqmuCcwuQ5DcPCFHhRzTcbtWj49xsSR8uKlKBw/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbWFn/ZXMuc3F1YXJlc3Bh/Y2UtY2RuLmNvbS9j/b250ZW50L3YxLzVl/OGI3OWFkZDJhNzQz/MGEyYmZlNGZhZC8x/NTg2NDY4OTUxMjcz/LUdIT1RTREY3V0sx/NTYyMTJYQzhUL21h/cGxlMW1vbnRoMy5w/bmc"
     this.fancy = false; // default should always be false
   }
@@ -36,12 +37,11 @@ export class MyCard extends LitElement {
       :host {
         display: block;
       } 
-      /* Comment with the star */
+      /* Do not touch this and also comment with a star in CSS */
       
       :host([fancy]) .card{
-        display: block;
-        background-color: blue;
-        color: white
+        background-image: url(https://imgs.search.brave.com/1krg270w0UQ3WoLibkGnBm9uejWi1qHzxtZvPppN4LA/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5pc3RvY2twaG90/by5jb20vaWQvOTEy/MTU5NDA4L3Bob3Rv/L2JsdWUtZGVlcC1z/ZWEtZm9hbWluZy13/YXRlci1iYWNrZ3Jv/dW5kLmpwZz9zPTYx/Mng2MTImdz0wJms9/MjAmYz1UNUpUZ3du/eWpnMXJ6T0tBVF9T/RGIzMi1tM09OQ2Rr/WkNVUm1iZTF2Zlk0/PQ);
+        color: #2d29a6;
       }
             
       .card-wrapper
@@ -58,7 +58,7 @@ export class MyCard extends LitElement {
       .card
       {
         background-color: orange;
-        /* background-image: url(https://imgs.search.brave.com/c50BPg4piiAGKRKqw8BwsoqHlSOa3Cog8nQ2tLuT6Qg/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvMTM1/NTY1MDcwL3Bob3Rv/L2Fic3RyYWN0LWJh/Y2tncm91bmQtb2Yt/c3RhcnMtaW4tdGhl/LWdhbGF4eS5qcGc_/cz02MTJ4NjEyJnc9/MCZrPTIwJmM9WS1q/d2ZncGZOcHRsWG5t/THNzVEpaYTZsd0Ix/TXM1S0g5M0RrWTFX/RVdLaz0); */
+        background-image: url(https://imgs.search.brave.com/c50BPg4piiAGKRKqw8BwsoqHlSOa3Cog8nQ2tLuT6Qg/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvMTM1/NTY1MDcwL3Bob3Rv/L2Fic3RyYWN0LWJh/Y2tncm91bmQtb2Yt/c3RhcnMtaW4tdGhl/LWdhbGF4eS5qcGc_/cz02MTJ4NjEyJnc9/MCZrPTIwJmM9WS1q/d2ZncGZOcHRsWG5t/THNzVEpaYTZsd0Ix/TXM1S0g5M0RrWTFX/RVdLaz0);
         padding: 5px 23px 5px 15px;
 
       }
@@ -234,14 +234,12 @@ export class MyCard extends LitElement {
             </div>
             <div id="text">
             <details ?open="${this.fancy}" @toggle="${this.openChanged}">
-              <summary>Description</summary>
+              <summary>Card Color</summary> 
               <div>
-                <slot>${this.description}</slot>
+                ${this.cardColor}
               </div>
             </details>
-              <p>Vigilance, Trample, Deathtouch, Lifelink, Indestructible, Hexproof.</p>
-              <p>When Maple, Syrup Queen is cast, pick any number of opponents. They exile half their library.</p>
-              <p><span id="cost">1</span>: Any number of target creatures become tapped, 1/1 Cat creatures and do not untap during their controller's untap phase.</p>
+            <slot>${this.description}</slot>
             <span>_____________________________________</span>
             <p id="flavor">"What a sticky situation!"</p>
             <span id="toughness">${this.toughness}</span>  
