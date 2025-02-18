@@ -223,7 +223,8 @@ export class MyCard extends LitElement {
             <p id="mana">1</p>
             </p>
           </div>
-          <img src=${this.image} id="picture">
+          <!-- <img src=${this.image} id="picture"> -->
+          <meme-maker image-url=${this.image} id="picture"></meme-maker>
           <div class="body">
             <div id="header">
               <p id="head">${this.cardType}
