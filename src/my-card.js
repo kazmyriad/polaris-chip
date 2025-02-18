@@ -202,14 +202,12 @@ export class MyCard extends LitElement {
   }
 
   openChanged(e){
-
     if (e.newState === "open") {
       this.fancy = true;
     }
     else {
       this.fancy = false;
     }
-    console.log(this.fancy)
   }
 
 
