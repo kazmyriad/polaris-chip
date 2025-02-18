@@ -1,16 +1,16 @@
 import { LitElement, html, css } from 'lit';
-//lit is coming from package.json - the  dependencies
-//shadow root
+import "@haxtheweb/meme-maker/meme-maker.js";
 
-/**
- * Now it's your turn. Here's what we need to try and do:
- * 1. Get you HTML from your card working in here 
- * 2. Get your CSS rescoped as needed to work here
- */
+// lit is coming from package.json - the  dependencies
+// shadow root
 
-// can i have multiple Lit Elements? 
-// the whole card is an HTML tag dummy
-// creating new html tags - is the html put here the same as the card html, or do we have to code form scratch?
+// /**
+//  * Now it's your turn. Here's what we need to try and do:
+//  * 1. Get you HTML from your card working in here 
+//  * 2. Get your CSS rescoped as needed to work here
+//  */
+
+
 export class MyCard extends LitElement {
 
   static get tag() {
@@ -30,12 +30,10 @@ export class MyCard extends LitElement {
     this.fancy = false; // default should always be false
   }
 
-  //is constructor only needed for dynamic elements/elements that are reactive?
-
   static get styles() {
     return css`
       :host {
-        display: block;
+        display: inline-block;
       } 
       /* Do not touch this and also comment with a star in CSS */
       
@@ -204,7 +202,7 @@ export class MyCard extends LitElement {
   }
 
   openChanged(e){
-    console.log(e.newState);
+
     if (e.newState === "open") {
       this.fancy = true;
     }
@@ -215,8 +213,9 @@ export class MyCard extends LitElement {
   }
 
 
-
   // FOR ME: What's being shown to the user
+  // <p id="title">${this.cardName.length > 15 ? this.substring(0, 14) + "..." : this.cardName}</p>
+
   render() {
     return html`
       <div class="card-wrapper">
@@ -252,14 +251,12 @@ export class MyCard extends LitElement {
       //html goes here; anything coded here cannot change
   }
 
-  //what does $ mean in JS - I don't really remember/understand (also, @)
   // what does static get mean? Moreso the get - I think static is similar to Java static
   // name: What does colon mean? (Answered on own I think)
 
-  
   static get properties() { // should match constructor components
     return {
-      fancy: { type: Boolean, reflect: true }, //expects fancy to be true or false, but the
+      fancy: { type: Boolean, reflect: true }, //expects fancy to be true or false
       title: { type: String },
       image: { type: String },
       cardName: { type: String },
