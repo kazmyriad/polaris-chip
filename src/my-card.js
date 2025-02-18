@@ -35,7 +35,7 @@ export class MyCard extends LitElement {
       :host {
         display: inline-block;
       } 
-      /* Do not touch this and also comment with a star in CSS */
+      /* Do not touch  and also comment with a star in CSS */
       
       :host([fancy]) .card{
         background-image: url(https://imgs.search.brave.com/1krg270w0UQ3WoLibkGnBm9uejWi1qHzxtZvPppN4LA/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5pc3RvY2twaG90/by5jb20vaWQvOTEy/MTU5NDA4L3Bob3Rv/L2JsdWUtZGVlcC1z/ZWEtZm9hbWluZy13/YXRlci1iYWNrZ3Jv/dW5kLmpwZz9zPTYx/Mng2MTImdz0wJms9/MjAmYz1UNUpUZ3du/eWpnMXJ6T0tBVF9T/RGIzMi1tM09OQ2Rr/WkNVUm1iZTF2Zlk0/PQ);
