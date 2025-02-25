@@ -186,6 +186,8 @@ export class MyCard extends LitElement {
         border: 5px solid black;
         padding: 15px 5px 5px 5px;
         width: 380px;
+        height: 200px;
+        overflow-y: scroll;
       }
 
       #flavor
@@ -223,13 +225,14 @@ export class MyCard extends LitElement {
             <p id="mana">1</p>
             </p>
           </div>
-          <!-- <img src=${this.image} id="picture"> -->
-          <meme-maker image-url=${this.image} id="picture"></meme-maker>
+          <img src=${this.image} id="picture">
+          <!-- <meme-maker image-url=${this.image} id="picture" top-text="HELP" bottom-text="ME"></meme-maker> -->
           <div class="body">
             <div id="header">
               <p id="head">${this.cardType}
               </p>
             </div>
+            
             <div id="text">
             <details ?open="${this.fancy}" @toggle="${this.openChanged}">
               <summary>Card Color</summary> 
@@ -240,9 +243,10 @@ export class MyCard extends LitElement {
             <slot>${this.description}</slot>
             <span>_____________________________________</span>
             <p id="flavor">"What a sticky situation!"</p>
-            <span id="toughness">${this.toughness}</span>  
             </div>
+            <span id="toughness">${this.toughness}</span>  
           </div>
+
         <p id="copyright">Illus. Someone at Wizards of the Coast, probably</p>
         </div>
       </div>
@@ -261,9 +265,10 @@ export class MyCard extends LitElement {
       cardName: { type: String },
       cardType: { type: String },
       toughness: { type: String },
-      description: { type: String },
+      description: { type: String }
     };
   }
+
   // good for APIs that can search the DOM and change specific elements
   // without these,  you can't universally update values, it'll just return the default
   // doesn't require entire page to rebuild when something is changed
@@ -271,7 +276,4 @@ export class MyCard extends LitElement {
 
 globalThis.customElements.define(MyCard.tag, MyCard);
 
-// ^ why globalThis, why MyCard.tag, what does define do
 // whenever you see the MyCard tag , run the class MyCard
-
-//slot tag 
